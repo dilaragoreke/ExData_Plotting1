@@ -1,7 +1,7 @@
 setwd("C:/Users/Dilara/Documents/R/Coursera/project1")
 
 ## Load data into data table called pow_cons
-pow_cons <- read.table(file="household_power_consumption.txt", header = TRUE, na.strings = "?", sep = ";" )
+pow_cons <- read.table(file = "household_power_consumption.txt", header = TRUE, na.strings = "?", sep = ";" )
 
 ## Convert the Date variables to Date Classes
 pow_cons$Date <- as.Date(pow_cons$Date, format = "%d/%m/%Y")

@@ -1,7 +1,7 @@
 setwd("C:/Users/Dilara/Documents/R/Coursera/project1")
 
 ## Load data into data table called pow_cons
-pow_cons <- read.table(file="household_power_consumption.txt", header = TRUE, na.strings = "?", sep = ";" )
+pow_cons <- read.table(file = "household_power_consumption.txt", header = TRUE, na.strings = "?", sep = ";" )
 
 ## Convert the Date variables to Date Classes
 pow_cons$Date <- as.Date(pow_cons$Date, format = "%d/%m/%Y")
@@ -16,7 +16,9 @@ pow_cons$DateTime <- as.POSIXct(paste(as.Date(pow_cons$Date), pow_cons$Time))
 png("plot4.png", width=480, height=480)
 par(mfrow = c(2,2))
 plot(pow_cons$DateTime,pow_cons$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="")
+
 plot(pow_cons$DateTime,pow_cons$Voltage, type="l", ylab="Voltage", xlab="datetime")
+
 plot(pow_cons$DateTime,pow_cons$Sub_metering_1, type="l",col ="black", ylab="Energy sub metering", xlab="")
 lines(pow_cons$DateTime, pow_cons$Sub_metering_2, col ="red")
 lines(pow_cons$DateTime, pow_cons$Sub_metering_3, col ="blue")
